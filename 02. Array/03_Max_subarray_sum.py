@@ -1,5 +1,8 @@
 
 # finding the maximun sum of all the possible subarrays
+# Subarray is a contiguous part of an array
+
+# Tags: Array, Sliding Window Technique
 
 # Kadane Algorithm is used to find the maximum sum of all the possible subarrays
 

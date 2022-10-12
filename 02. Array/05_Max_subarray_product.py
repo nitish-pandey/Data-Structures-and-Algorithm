@@ -1,5 +1,6 @@
 
 # finding the maximum product of all the possible subarrays
+# Tags: Array, Sliding Window Technique
 
 # Algorithm
 # 1. Initialize curr_max=arr[0] and curr_min=arr[0] and max_product=arr[0]
