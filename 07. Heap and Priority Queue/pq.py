@@ -6,7 +6,6 @@ class priority_queue:
         self.heap = []
 
     def __swap(self, i, j):
-
         self.heap[i], self.heap[j] = self.heap[j], self.heap[i]
 
     def __float_up(self, index):
