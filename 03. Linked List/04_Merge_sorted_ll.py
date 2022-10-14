@@ -22,20 +22,21 @@ def merge_sorted_ll(l1, l2):
     curr1 = l1.head
     curr2 = l2.head
 
+
     while curr1 and curr2:
         if curr1.data < curr2.data:
-            l3.insert(curr1.data)
+            l3.insert_last(curr1.data)
             curr1 = curr1.next
         else:
-            l3.insert(curr2.data)
+            l3.insert_last(curr2.data)
             curr2 = curr2.next
 
     while curr1:
-        l3.insert(curr1.data)
+        l3.insert_last(curr1.data)
         curr1 = curr1.next
 
     while curr2:
-        l3.insert(curr2.data)
+        l3.insert_last(curr2.data)
         curr2 = curr2.next
 
     return l3
@@ -45,22 +46,19 @@ def merge_sorted_ll(l1, l2):
 def main():
     l1 = linked_list()
     l2 = linked_list()
-    l1.insert(5)
-    l1.insert(4)
-    l1.insert(3)
-    l1.insert(2)
-    l1.insert(1)
-    l2.insert(10)
-    l2.insert(9)
-    l2.insert(8)
-    l2.insert(7)
-    l2.insert(6)
+
+    l1.insert_last(5)
+    l1.insert_last(10)
+    l1.insert_last(15)
+    l2.insert_last(2)
+    l2.insert_last(3)
+    l2.insert_last(20)
+
     l3 = merge_sorted_ll(l1, l2)
     l3.print_list()
-
 
 
 main() # Call to main()
 
 # Output:
-# 1 2 3 4 5 6 7 8 9 10
+# 2 3 5 10 15 20
