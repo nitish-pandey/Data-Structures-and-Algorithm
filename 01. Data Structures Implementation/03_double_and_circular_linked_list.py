@@ -1,3 +1,18 @@
+# Doubly linked list is a linked list where each node has two pointers, one to the next node and one to the previous node.
+
+# Advantages:
+# 1. It can be traversed in both forward and backward direction.
+# 2. The delete operation in DLL is more efficient if pointer to the node to be deleted is given.
+# 3. We can quickly insert a new node before a given node.
+
+# Disadvantages:
+# 1. Every node of DLL Require extra space for an previous pointer. It is possible to implement DLL with single pointer though (See this and this).
+# 2. All operations require an extra pointer previous to be maintained. For example, in insertion, 
+#       we need to modify previous pointers together with next pointers. For example in following functions
+#       for insertions at different positions, we need 1 or 2 extra steps to set previous pointer.
+
+
+
 
 class double_linked_list:
 
@@ -46,6 +61,18 @@ class double_linked_list:
             temp=temp.next
         print()
 
+
+
+# Circular linked list is a linked list where all nodes are connected to form a circle.
+
+# Advantages:
+# 1. Any node can be a starting point. We can traverse the whole list by starting from any point. We just need to stop when the first visited node is visited again.
+# 2. Useful for implementation of queue. Unlike simple linked list, we don’t need to maintain two pointers for front and rear if we use circular linked list. We can maintain a pointer to the last inserted node and front can always be obtained as next of last.
+
+
+# Disadvantages:
+# 1. Each node of circular linked list must store two pointers (for previous and next). For singly linked list, circular linked list requires extra space for an address pointer.
+# 2. Nodes cannot be easily removed from a circular linked list.
 
 
 

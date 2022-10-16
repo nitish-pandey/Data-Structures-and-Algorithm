@@ -1,4 +1,18 @@
 
+# Linked list is a linear data structure, in which the elements are not stored at contiguous memory locations.
+# The elements in a linked list are linked using pointers.
+
+
+# Advantages:
+# 1. Fast inserts and deletes
+# 2. Dynamic memory allocation
+# 3. Flexible size
+
+# Disadvantages:
+# 1. Slow lookups
+# 2. Unordered
+# 3. Extra memory for pointers
+
 
 class linked_list:
 

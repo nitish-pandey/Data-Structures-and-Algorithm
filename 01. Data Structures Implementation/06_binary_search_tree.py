@@ -1,3 +1,18 @@
+# Binary search tree is a node-based binary tree data structure which has the following properties:
+#   The left subtree of a node contains only nodes with keys lesser than the node’s key.
+#   The right subtree of a node contains only nodes with keys greater than the node’s key.
+#   The left and right subtree each must also be a binary search tree.
+#
+# Advantages:
+#   1. Better than linked list for searching.
+#   2. Better than linked list for insertion and deletion.
+#   3. Better than linked list for finding the minimum and maximum.
+#
+# Disadvantages:
+#   1. No O(1) operations. All operations are O(log n).
+#   2. No random access.
+#
+
 
 
 class BST:

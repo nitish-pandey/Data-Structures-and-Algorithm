@@ -1,4 +1,18 @@
 
+# AVL tree is a self-balancing Binary Search Tree (BST) where the difference between heights of left and right subtrees cannot be more than one for all nodes.
+
+# Advantages of AVL Tree over BST:
+#   1. AVL trees provide faster lookups than BST because they are more balanced compared to BSTs.
+#   2. AVL trees provide faster insertion and deletion operations than BST because they are more balanced compared to BSTs.
+
+# Disadvantages of AVL Tree over BST:
+#   1. AVL trees require more memory than BSTs because they store balance factors with each node.
+#   2. AVL trees are slower than Red-Black Trees because they may require one or two tree rotations during insertion and deletion.
+
+
+
+
+
 class AVL:
 
     class node:
@@ -148,3 +162,9 @@ class AVL:
         return self.__search(root.right,a)
 
     
+# Explain Insertion in AVL tree
+
+# 1. Perform the normal BST insertion.
+# 2. Get the balance factor of the current node (root).
+# 3. If balance factor is greater than 1, then the current node is unbalanced and we are either in Left Left case or Left Right case. To check whether it is Left Left case or Left Right case, compare data with root’s left child’s data.
+# 4. If balance factor is less than -1, then the current node is unbalanced and we are either in Right Right case or Right Left case. To check whether it is Right Right case or Right Left case, compare data with root’s right child’s data.
