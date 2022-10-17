@@ -65,3 +65,114 @@ class queue:
             temp=temp.next
         print()
 
+
+
+
+
+# Dequeue is an extension of queue with following properties.
+
+# 1. Elements can be inserted and deleted at both ends.
+# 2. Either of the end works as front and rear.
+# 3. The queue that supports both insertion and deletion at both ends is called ‘Double Ended Queue’ or ‘Deque’ for short.
+
+
+# Advantages:
+# 1. It can be used as both queue and stack.
+# 2. It can be used to implement both FIFO and LIFO.
+# 3. It can be used to implement priority queue.
+
+
+class deque:
+
+    class __node:
+
+        def __init__(self,data) -> None:
+            self.data=data
+            self.next=None
+            self.prev=None
+            pass
+    
+
+    def __init__(self) -> None:
+        self.__front=None
+        self.__back=None
+        pass
+
+
+    def insert_front(self,a):
+        temp=self.__node(a)
+
+        if self.__front==None:
+            self.__front=temp
+            self.__back=temp
+            return
+
+        temp.next=self.__front
+        self.__front.prev=temp
+        self.__front=temp
+        return
+
+    
+    def insert_back(self,a):
+        temp=self.__node(a)
+
+        if self.__front==None:
+            self.__front=temp
+            self.__back=temp
+            return
+
+        self.__back.next=temp
+        temp.prev=self.__back
+        self.__back=temp
+        return
+
+    
+    def delete_front(self):
+        if self.__front==None:
+            return
+
+        self.__front=self.__front.next
+        return
+
+    
+    def delete_back(self):
+
+        if self.__front==None:
+            return
+
+        self.__back=self.__back.prev
+        return
+
+    
+    def traverse(self):
+        temp=self.__front
+        if temp==None:
+            print("Queue is empty.")
+            return
+
+        print("The queue is : ")
+        while temp:
+            print(temp.data,end="-> ")
+            temp=temp.next
+        print()
+
+
+    def top(self):
+
+        if self.__front:
+            return self.__front.data
+        return -1
+
+    def back(self):
+        if self.__back:
+            return self.__back.data
+        return -1
+
+    def size(self):
+        temp=self.__front
+        count=0
+        while temp:
+            count+=1
+            temp=temp.next
+        return count
+

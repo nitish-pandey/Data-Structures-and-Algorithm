@@ -4,9 +4,14 @@
 
 # Algorithm:
 
-# 1. Find the minimum element in the list
-# 2. Swap the minimum element with the first element
-# 3. Repeat steps 1 and 2 for the remaining list
+# 1. Create a function selection_sort() that takes an array as an argument
+# 2. Iterate through the array using a for loop
+# 3. Set the min_index to i
+# 4. Iterate through the array again using a for loop
+# 5. If the element at index j is less than the element at index min_index, set min_index to j
+# 6. Swap the elements at index i and min_index
+# 7. Return the sorted array
+
 
 
 # Time Complexity: O(n^2)

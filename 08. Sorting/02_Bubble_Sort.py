@@ -3,13 +3,10 @@
 
 # Algorithm:
 
-# 1. Compare the first element with the second element
-# 2. If the first element is greater than the second element, swap them
-# 3. Compare the second element with the third element
-# 4. If the second element is greater than the third element, swap them
-# 5. Repeat steps 3 and 4 for the remaining elements
-# 6. Repeat steps 1-5 for the remaining elements
-
+# 1. Iterate through the array using  'for loop' using i as the index
+# 2. Iterate through the array again using  'for loop' using j as the index
+# 3. If the element at index j is greater than the element at index j+1, swap the elements
+# 4. Return the sorted array
 
 # Time Complexity: O(n^2)
 # Space Complexity: O(1)

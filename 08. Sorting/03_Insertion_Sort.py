@@ -3,9 +3,14 @@
 
 # Algorithm:
 
-# 1. Insert the second element in the list in the sorted list
-# 2. Insert the third element in the list in the sorted list
-# 3. Repeat steps 1 and 2 for the remaining elements
+# 1. Iterate through the array in reverse using a for loop
+# 2. Set the key to the element at index i and j to i-1
+# 3. While j is greater than or equal to 0 and key is less than the element at index j
+# 4. Set the element at index j+1 to the element at index j
+# 5. Decrement j by 1
+# 6. Set the element at index j+1 to key
+# 7. Return the sorted array
+
 
 
 # Time Complexity: O(n^2)
