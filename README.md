@@ -10,28 +10,43 @@ The questions selected here are frequently appeared in the **Interviews** and Ba
 > **Language : Python**
 
 
-## Topics
-  
-  01. Data Structures Implementation
-  02. Array
-  03. Linked List
-  04. Stack and Queue
-  05. Trees
-
-
 
 
 ## Basic Structure of a Content
 
-  - Problem Statement 
-  - Tags ( if specific )
-  - Algorithm explained
-  - Time and Space Complexity
-  
-  - code of the solution
-  -  Driver code
+  - Problem Statement     
+  - Tags ( If specific )
+  - Algorithm explained    
+  - Time and Space Complexities
+  - Code of the solution
+  - Driver code
   - Expected Output
   
+
+
+## Topics
+  
+    01. Data Structures Implementation
+    02. Array
+    03. Linked List
+    04. Stack and Queue
+    05. Trees
+    06. Graphs
+    07. Heap and Priority Queue
+    08. Sorting
+    09. Binary Search
+    10. String
+    11. Recursion and Backtracking
+    12. Greedy
+    13. Hashing
+    14. Dynamic Programming
+    15. Bit Manipulation
+    16. Matrix and Graph
+    17. Miscellaneous
+
+
+
+
   
   
-> This repository won't contain the Questions that are hard-level or appearing on the Yop-Level coding challenges.
+> This repository won't contain the Questions that are hard-level or appearing on the Top-Level coding challenges.

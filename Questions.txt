@@ -1,0 +1,216 @@
+
+Questions related to Data Structures:
+
+Tag: Array 
+
+1. What is an array? What are the different types of arrays?
+
+Ans: An array is a collection of items stored at contiguous memory locations. 
+        The idea is to store multiple items of the same type together. 
+        This makes it easier to calculate the position of each element by simply adding an offset to a base value, 
+        i.e., the memory location of the first element of the array (generally denoted by the name of the array).
+
+        Types of arrays:
+        1. One-dimensional array
+        2. Multi-dimensional array
+        3. Jagged array
+
+
+
+2. What is the difference between a one-dimensional array and a two-dimensional array?
+
+Ans: A one-dimensional array is a collection of elements that are arranged in a linear fashion, 
+        i.e., the elements are arranged in a single row or a single column. 
+        A two-dimensional array is a collection of elements that are arranged in a rectangular fashion, 
+        i.e., the elements are arranged in rows and columns.
+
+
+
+3. What is the difference between a static array and a dynamic array?
+
+Ans: A static array is a fixed-size array. 
+        The size of the array is fixed at compile time and cannot be changed at run time. 
+        A dynamic array is a resizable array. 
+        The size of the array can be increased or decreased at run time.
+
+
+
+
+Tag+=Linked List
+
+1. What is a linked list? What are the different types of linked lists?
+
+Ans: A linked list is a linear data structure, in which the elements are not stored at contiguous memory locations. 
+        The elements in a linked list are linked using pointers as shown in the below image.
+
+        Types of linked lists:
+        1. Singly linked list
+        2. Doubly linked list
+        3. Circular linked list
+
+
+
+2. What is the difference between a singly linked list and a doubly linked list?
+
+Ans: A singly linked list is a linked list in which each node contains a pointer to the next node in the list. 
+        A doubly linked list is a linked list in which each node contains a pointer to the next node as well as the previous node in the list.
+
+
+
+3. What is the difference between a singly linked list and a circular linked list?
+
+Ans: A singly linked list is a linked list in which each node contains a pointer to the next node in the list. 
+        A circular linked list is a linked list in which the last node points to the first node in the list.
+
+
+
+4. Difference between Array and Linked List?
+
+Ans: Array is a collection of elements stored at contiguous memory locations. 
+        Linked list is a collection of elements stored at non-contiguous memory locations. 
+        Array is a static data structure. Linked list is a dynamic data structure. 
+        Array is a linear data structure. Linked list is a non-linear data structure. 
+        Array is a sequential data structure. Linked list is a non-sequential data structure. 
+        Array is a homogeneous data structure. Linked list is a heterogeneous data structure. 
+        Array is a random access data structure. Linked list is a sequential access data structure. 
+        Array is a static data structure. Linked list is a dynamic data structure. 
+        Array is a fixed size data structure. Linked list is a variable size data structure. 
+        Array is a stack data structure. Linked list is a queue data structure.
+
+
+5. Applications of Linked List?
+
+Ans: Linked lists are used to implement stacks, queues, graphs, etc. 
+        Linked lists are used to implement hash tables, dynamic memory allocation, etc. 
+        Linked lists are used to implement adjacency lists, adjacency matrices, etc. 
+        Linked lists are used to implement sparse matrices, etc.
+
+
+
+Tag += Stack
+
+1. What is a stack? What are the different types of stacks?
+
+Ans: A stack is a linear data structure that follows the Last In First Out (LIFO) order. 
+        The element that is inserted last is the first element to be removed. 
+        The insertion and deletion operations are performed at one end of the stack called the top. 
+        The stack is a simple data structure that can be implemented using arrays or linked lists.
+
+        Types of stacks:
+        1. Array implementation of stack
+        2. Linked list implementation of stack
+
+
+
+2. What is the difference between a stack and a queue?
+
+Ans: A stack is a linear data structure that follows the Last In First Out (LIFO) order. 
+        The element that is inserted last is the first element to be removed. 
+        A queue is a linear data structure that follows the First In First Out (FIFO) order. 
+        The element that is inserted first is the first element to be removed.
+
+
+4. Applications of Stack?
+
+Ans: The applications of stack are :
+
+    1. Infix, postfix and prefix expressions.
+    2. Function calls and expression evaluation.
+    3. Backtracking.
+    4. Undo operations in editors.
+    5. Forward and backward feature in web browsers.
+    6. Tree traversals.
+    7. Parenthesis matching.
+
+
+
+Tag += Queue
+
+1. What is a queue? What are the different types of queues?
+
+Ans: A queue is a linear data structure that follows the First In First Out (FIFO) order. 
+        The element that is inserted first is the first element to be removed. 
+        The insertion and deletion operations are performed at two different ends of the queue called the front and rear. 
+        The queue is a simple data structure that can be implemented using arrays or linked lists.
+
+        Types of queues:
+        1. Array implementation of queue
+        2. Linked list implementation of queue
+
+
+
+2. What is circular queue?
+
+Ans: A circular queue is a linear data structure in which the operations are performed based on the FIFO (First In First Out) principle and the last position is connected back to the first position to make a circle. 
+        It is also called ‘Ring Buffer’.
+
+
+
+3. What is the difference between a circular queue and a linear queue?
+
+Ans: A circular queue is a queue in which the last position is connected back to the first position to make a circle. 
+        A linear queue is a queue in which the last position is not connected back to the first position.
+
+
+
+4. Applications of Queue?
+
+Ans: The applications of queue are :
+
+    1. CPU scheduling, Disk Scheduling.
+    2. Handling of interrupts in real-time systems.
+    3. Call Center phone systems use Queues to hold people calling them in an order, until a service representative is free.
+    4. Handling of data in Bounded Buffer problems.
+    5. In real life scenario, Call Center phone systems uses Queues to hold people calling them in an order, until a service representative is free.
+    6. Traffic signals for a road.
+
+
+
+Tag += Tree
+
+1. What is a tree? What are the different types of trees?
+
+Ans: A tree is a hierarchical data structure that represents the nodes connected by edges. 
+        A tree data structure can be defined recursively as a collection of nodes (starting at a root node), 
+        where each node is a data structure consisting of a value, together with a list of references to nodes (the “children”), 
+        with the constraints that no reference is duplicated, and none points to the root.
+
+        Types of trees:
+        1. Binary tree
+        2. Binary search tree
+        3. AVL tree
+        4. Red-black tree
+        5. B-tree
+        6. B+ tree
+        7. B* tree
+        8. Splay tree
+        9. Ternary search tree
+        10. K-d tree
+        11. Segment tree
+        12. Fenwick tree
+        13. Suffix tree
+        14. Suffix array
+        15. Trie
+        16. N-ary tree
+
+
+
+2. Categories:
+
+    a. Complete Tree: A complete binary tree is a binary tree in which every level, 
+                        except possibly the last, is completely filled, and all nodes are as far left as possible.
+
+
+    b. Full Tree: A full binary tree is a special type of binary tree in which every parent node/internal 
+                    node has two children and all leaf nodes are at the same level.
+
+    
+    c. Perfect Tree: A perfect binary tree is a special type of full binary tree in which all internal 
+                        nodes have two children and all leaves are at the same level.
+
+
+    d. Balanced Tree: A balanced binary tree is a special type of binary tree in which the difference
+                        between the height of the left and right subtrees of any node is not more than one.
+
+
+
