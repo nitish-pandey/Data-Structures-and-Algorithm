@@ -22,6 +22,8 @@ from bst import BST
 # 16. Check if the tree is a max heap
 # 17. Check if the tree is a min max heap
 
+
+
 # Problem Staement 1: Check if two trees are identical or not using recursion
 
 
