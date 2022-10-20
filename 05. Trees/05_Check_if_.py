@@ -52,61 +52,44 @@ def check_if_identical(root1,root2):
 # Problem statement 2: Check if a binary tree is a subtree of another binary tree
 
 
+# Algorithm to check if one binary tree is subset of another:
+# 1. Check if the two trees are identical
+# 2. If not, check if the left subtree of the first tree is a subtree of the second tree
+# 3. If not, check if the right subtree of the first tree is a subtree of the second tree
+# 4. If not, return false
 
+# Time Complexity: O(n)
+# Space Complexity: O(n)
 
 def check_if_subtree(root1,root2):
-
-    if root1 is None:
-        return False
-
-    if root1.value == root2.value:
-        return check_if_identical(root1,root2)
-
-    return check_if_subtree(root1.left,root2) or check_if_subtree(root1.right,root2)
-
-
-
-# Problem statement 3: Check if a binary tree is a mirror of another binary tree
-
-# Algorithm:
-# if two root are not equal, return false
-# Else, check recursively for the left and right subtrees and return true if both are true
-
-
-def check_if_mirror(root1,root2):
 
     if root1 is None and root2 is None:
         return True
 
-    if root1 is None or root2 is None:
+    if root1 is None:
         return False
 
-    if root1.value != root2.value:
-        return False
+    if root2 is None:
+        return True
 
-    return check_if_mirror(root1.left,root2.right) and check_if_mirror(root1.right,root2.left)
+    ans=check_if_identical(root1,root2)
+
+    return check_if_subtree(root1.left,root2) or check_if_subtree(root1.right,root2) or ans
+
+
+
+# Problem statement 3: Check if a binary tree is a mirror of another binary tree
+# Mirror of a binary tree is a tree in which left and right subtrees are interchanged
+
+# To be Updated:
 
 
 
 
 # Problem statement 4: Check if a binary tree is a symmetric tree
+# Symmetric tree is a tree where the left subtree is a mirror image of the right subtree
 
 
-def check_if_symmetric(root):
-
-    if root is None:
-        return True
-
-    if not root.left and not root.right:
-        return True
-
-    if not root.left or not root.right:
-        return False
-
-    if root.left.value != root.right.value:
-        return False
-
-    return check_if_symmetric(root.left) and check_if_symmetric(root.right)
 
 
 

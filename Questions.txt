@@ -197,20 +197,196 @@ Ans: A tree is a hierarchical data structure that represents the nodes connected
 
 2. Categories:
 
-    a. Complete Tree: A complete binary tree is a binary tree in which every level, 
-                        except possibly the last, is completely filled, and all nodes are as far left as possible.
+        a. Complete Tree: A complete binary tree is a binary tree in which every level, 
+                except possibly the last, is completely filled, and all nodes are as far left as possible.
 
 
-    b. Full Tree: A full binary tree is a special type of binary tree in which every parent node/internal 
-                    node has two children and all leaf nodes are at the same level.
+        b. Full Tree: A full binary tree is a special type of binary tree in which every parent node/internal 
+                node has two children and all leaf nodes are at the same level.
 
     
-    c. Perfect Tree: A perfect binary tree is a special type of full binary tree in which all internal 
-                        nodes have two children and all leaves are at the same level.
+        c. Perfect Tree: A perfect binary tree is a special type of full binary tree in which all internal 
+                nodes have two children and all leaves are at the same level.
 
 
-    d. Balanced Tree: A balanced binary tree is a special type of binary tree in which the difference
-                        between the height of the left and right subtrees of any node is not more than one.
+        d. Balanced Tree: A balanced binary tree is a special type of binary tree in which the difference
+                between the height of the left and right subtrees of any node is not more than one.
 
+        e. Degenerate/Pathological Tree: A degenerate (or Pathological) tree is a tree in which every internal
+                node has one child. Such trees are performance-wise same as linked list.
+
+        f. Skewed Tree: A skewed tree is a tree where all internal nodes have one child. Such trees are performance-wise
+                same as linked list.
+
+        
+
+
+3. What is B Tree and B+ Tree.
+
+Ans:    B tree is a self-balancing tree data structure that maintains sorted data and allows searches, sequential access, 
+                insertions, and deletions in logarithmic time.
+
+        B+ Tree is a special type of B tree in which all interior nodes act as index with only key and child pointer,
+                and all the leaves contain the actual records sorted in key order.
+
+        
+
+
+4. What is AVL tree?
+
+Ans:    An AVL tree is a self-balancing Binary Search Tree (BST) where the difference between heights 
+                of left and right subtrees cannot be more than one for all nodes.
+
+
+
+
+5. Types of Nodes:
+
+        a. External node : A node which contains no children is called an external node, 
+                it is also called as a Leaf Node.
+
+
+        b. Internal node/Non leaf node/Branch node: A node which contains children is called an internal
+                node, it is also called as a Branch node or Non leaf Node.
+
+        
+        c. Root node/Root data: Root node is the first node inserted in the tree or it is the
+                top most data in the tree.
+
+        
+        d. Children: Children of a node are the nodes directly associated with that node.
+
+
+        e. Parent node/Edge/Link: A node from which an edge comes is called as Parent node or edge or link.
+
+
+        f. Siblings/Adjacent nodes: The nodes which share a common parent node are referred to as
+                siblings or adjacent nodes.
+
+
+        
+
+6. What is Binary Search Tree?
+
+Ans:    A binary search tree (BST) is a root node, which has pointers or reference to two child nodes: 
+                (1) the left child and the (2) right child. The left child node has a value smaller than its parent node, 
+                or it is the smallest value in its right sub-tree, and (b) the right child node has a value 
+                greater than its parent node, or it is the largest value in its right sub-tree.
+
+
+
+7. Applications of Tree:
+
+Ans:    The applications of tree are :
+
+        1. Implementation of Priority Queues.
+        2. Manipulate hierarchical data.
+        3. Make information easy to search (see tree traversal).
+        4. Manipulate sorted lists of data.
+        5. Router algorithms
+        6. Form of a multi-stage decision-making (see business chess).
+        7. Trie data structure.
+        8. Red-black tree, splay trees and AVL trees provide implementations of those and related data structures
+                that allow for efficient lookup, addition, and removal of records.
+
+
+
+
+        
+
+
+
+Tag += Graphs
+
+
+1. What is Graph ?
+
+Ans: The Graph is a non-linear data structure comprising of vertices and edges. 
+
+        The elements of a graph which can have relationships among them are
+        referred to as vertices, and the relationships among the vertices are 
+        referred to as edges.
+
+
+2. What is the use of graph data structure ?
+
+Ans: The Graph data structure is widely used to represent many real-world problems. 
+
+        Graphs are basically used to solve many complex problems easily. 
+
+        Some of the Important Applications of Graphs are:
+
+    – Social Networking.
+    – GPS (Maps/satellite communication).
+    – Peer-to-peer network
+    – Games.
+    – Recommendation systems
+
+
+
+3. Types of Graph
+
+        a. Undirected graph
+                        
+           - Two vertices are connected by an undirected edge.
+        
+        b. Directed graph and
+                        
+           - Vertices are associated with pairs of vertices, 
+                 called the start and end vertices of the edge.
+        
+        c. Graph can also have more properties like 
+                        
+           - Multigraph- edges can appear more than once.
+           - Weighted Graph- edge are associated with nonnegative numbers called weights or costs.
+
+
+
+4. Connected graph
+
+                A graph is called a connected graph if there is a path between 
+                any two vertices. If we can connect any two vertices in a graph by 
+                turning on any number of edges, then the graph is said to be a 
+                strongly connected graph.
+
+
+
+5. Types of Graph Traversals:
+
+        a. Depth First Traversal or DFS for a Graph:
+
+                DFS traversal goes beyond one possible outward path before resuming 
+                the outer level of search. If every possible outward edge of a vertex 
+                at a certain level of traversal is traversed before returning to the 
+                sooner levels of search, we say that DFS is being applied.
+
+                Data Structures Used: A Stack is used in DFS Traversal.
+
+        
+        b. Breadth First Traversal or BFS for a Graph:
+
+                BFS traversal goes across to all of the outward edges of a vertex before 
+                advancing to any of the next vertices at the same level of search. If every 
+                traversed edge’s two end points are visited in order from left to right, 
+                then BFS is being applied. The level of a vertex is calculated as the number 
+                of transformations on the data set in order to obtain the data set being traversed. 
+                The breadth of a data structure is found by locating in each data set that exists 
+                beyond the data set being searched the lowest level that exists in the data set.
+
+                Data Structures Used: We can use a Queue to implement BFS traversal.
+
+
+
+6. Applications of Graph .
+
+Ans: The applications of Graph trees are :
+
+        1. Google map is based on graphs.
+        2. Website validators check for cycles in webpages.
+        3.Algorithms like Kruskal’ s minimum spanning tree and Dijikstra’s shortest path
+            can be applied on Graph or trees.
+        4. Binary Search, DFS are applied on this.
+        5. Tree and graphs are the same
+        6. Maze game are implemented
 
 
