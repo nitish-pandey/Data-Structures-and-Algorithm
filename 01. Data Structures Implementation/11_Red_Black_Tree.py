@@ -9,6 +9,12 @@
 # 3) There are no two adjacent red nodes (A red node cannot have a red parent or red child).
 # 4) Every path from a node (including root) to any of its descendant NULL node has the same number of black nodes.
 
+
+# Advantages of Red Black Tree over BST and AVL Tree:
+# 1) Red Black Tree is more balanced than AVL Tree and BST.
+# 2) Red Black Tree is faster than AVL Tree and BST .
+
+
 # Time Complexity: O(log n) for insertion, deletion and search operations.
 # Space Complexity: O(n) for storing the tree.
 
