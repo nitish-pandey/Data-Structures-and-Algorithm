@@ -3,13 +3,13 @@
 # Tags: Array, Sliding Window Technique
 
 # Algorithm:
-# 1. Initialize i=0, j=0 and sum=0
-# 2. Iterate from j=0 to n-1
-# 3. Add arr[j] to sum
-# 4. If sum==s then return i+1 and j+1
-# 5. If sum>s then subtract arr[i] from sum and increment i
-# 6. Increment j
-# 7. If no subarray found then return -1
+# 1. Initialize start to 0, end to 1 and curr_sum to arr[0]
+# 2. Iterate while end is less than or equal to n
+# 3. If curr_sum is greater than s and start is less than end-1, then subtract arr[start] from curr_sum and increment start
+# 4. If curr_sum is equal to s, return [start, end-1]
+# 5. If end is less than n, add arr[end] to curr_sum
+# 6. Return [-1]
+
 
 # Time complexity: O(n)
 # Space complexity: O(1)
