@@ -16,23 +16,30 @@
 
 
 def subarray_sum(arr, s):
-
     n=len(arr)
-    i = 0
-    j = 0
-    sum = 0
 
-    while j < n:
-        sum += arr[j]
-        if sum == s:
-            return i+1, j+1
-        elif sum > s:
-            sum -= arr[i]
-            i += 1
-        j += 1
-    
-    return -1
+    if n==0:
+        return -1
 
+    st=0
+    curr_sum=arr[0]
+
+    end=1
+
+    while end<=n:
+
+        while curr_sum>s and st<end-1:
+            curr_sum-=arr[st]
+            st+=1
+
+        if curr_sum==s:
+            return [st,end-1]
+
+        
+        if end<n:
+            curr_sum+=arr[end]
+
+    return [-1]
 
 def main():
     arr=[1,2,3,7,5]
