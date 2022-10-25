@@ -9,7 +9,7 @@
 # 3. If arr[j]>arr[j+1], swap the elements
 # 4. Repeat the same process for the remaining elements
 
-# Time Complexity: O(n^2)
+# Time Complexity: O(n^2) in all case
 # Space Complexity: O(1)
 
 
@@ -38,7 +38,7 @@ def main():
     print(ans)
 
 
-main()
+# main() # calling the  main function
 
 # Output
 # [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 23, 34, 45, 56, 67, 89, 90]

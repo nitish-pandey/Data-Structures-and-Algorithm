@@ -13,7 +13,7 @@
 # 4. Repeat the same process for the remaining elements
 
 
-# Time Complexity: O(n^2)
+# Time Complexity: O(n^2) in all case
 # Space Complexity: O(1)
 
 
@@ -31,6 +31,7 @@ def selection_sort(arr):
 
                 min_index=j
 
+        # swap the minimum element with the first element
         arr[i],arr[min_index]=arr[min_index],arr[i]
 
     return arr
@@ -50,7 +51,7 @@ def main():
 
 
 
-main()
+# main() #calling main function 
 
 # Output
 
