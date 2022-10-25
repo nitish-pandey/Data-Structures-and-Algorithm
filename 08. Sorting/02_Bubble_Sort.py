@@ -1,12 +1,13 @@
 
-# Problem statement: Sort a list of numbers using bubble sort
+# Problem Statement: Sort the array using Bubble Sort
+
+# Approach: Swap the adjacent elements if they are not in the correct order
 
 # Algorithm:
-
-# 1. Iterate through the array using  'for loop' using i as the index
-# 2. Iterate through the array again using  'for loop' using j as the index
-# 3. If the element at index j is greater than the element at index j+1, swap the elements
-# 4. Return the sorted array
+# 1. Iterate from 0 to n-1
+# 2. Iterate from 0 to n-1-i
+# 3. If arr[j]>arr[j+1], swap the elements
+# 4. Repeat the same process for the remaining elements
 
 # Time Complexity: O(n^2)
 # Space Complexity: O(1)
@@ -16,27 +17,29 @@ def bubble_sort(arr):
 
     n=len(arr)
 
-    if n<=1:
-        return 
+    for i in range(n-1):
 
-    for i in range(n):
+        for j in range(1,n-i):
 
-        for j in range(0,n-i-1):
+            if arr[j-1]>arr[j]:
 
-            if arr[j]>arr[j+1]:
-                arr[j],arr[j+1]=arr[j+1],arr[j]
+                arr[j],arr[j-1]=arr[j-1],arr[j]
+
+    return arr
 
 
 
 def main():
 
-    arr=[64,25,12,22,11]
-    bubble_sort(arr)
-    print(arr)
+    arr=[23,45,12,67,89,34,56,90,1,2,3,4,5,6,7,8,9,10]
+
+    ans=bubble_sort(arr)
+
+    print(ans)
 
 
-main() # Call to main() function
+main()
 
+# Output
+# [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 23, 34, 45, 56, 67, 89, 90]
 
-# Output:
-# [11, 12, 22, 25, 64]
