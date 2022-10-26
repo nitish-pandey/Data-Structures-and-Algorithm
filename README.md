@@ -1,6 +1,6 @@
 # Data-Structures-and-Algorithm
 
-This Repository will contain the codes related to Data Structures and Algorithm.   
+This Repository contains the codes related to Data Structures and Algorithm.   
 The questions are selected according to the Basic Understanding and Applications.
 
 The questions selected here are frequently appeared in the **Interviews** and Basic Coding tests.  
