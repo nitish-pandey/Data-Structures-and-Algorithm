@@ -103,6 +103,18 @@ def max_subarray(arr):
 
 
 # Algorithm:
+# 1. Initialize start=0 and end=1 and curr_sum=arr[0]
+# 2. Iterate over the array from 1 to n
+# 3.    while curr_sum>s and start<end-1:
+# 4.        curr_sum-=arr[start]
+# 5.        start+=1
+# 6.    if curr_sum==s:
+# 7.        return arr[start,end]
+# 8.    if end<n:
+# 9.        curr_sum+=arr[end]
+# 10.   end+=1
+# 11. return []
+
 
 
 def subarray_with_given_sum(arr,s):
