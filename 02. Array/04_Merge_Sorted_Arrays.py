@@ -49,14 +49,16 @@ def merge_sorted_arrays(arr1,arr2):
     return arr3
 
 
-def main():
 
-    arr1=[1,3,5,7]
-    arr2=[2,4,6,8]
-    print(merge_sorted_arrays(arr1,arr2))
+def union_of_two_sorted_array(arr1:list(),arr2:list()) ->list():
+    n=len(arr1)
+    m=len(arr2)
 
+    arr=[0]*(n+m)
 
-main() # call main function
+    i,j,k=0,0,0
 
-# output
-# [1, 2, 3, 4, 5, 6, 7, 8]
+    while i<n and j<m:
+        if(arr1[i]==arr2[j]):
+            arr[k]=arr1[i]
+            i+=1
