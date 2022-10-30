@@ -20,8 +20,8 @@
 # 7. Return dp[n][W]
 
 
-# Time Complexity: O(nW)
-# Space Complexity: O(nW)
+# Time Complexity: O(n * W)
+# Space Complexity: O(n * W)
 
 
 

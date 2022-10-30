@@ -12,12 +12,3 @@
 # Output:
 # 5 
 
-
-def bucket_filling(N):
-
-    dp=[0]*(N+1)
-
-    for i in range(2,N+1):
-        dp[i]=dp[i-2]+2
-
-    

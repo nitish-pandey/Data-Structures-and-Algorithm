@@ -9,6 +9,7 @@
 # 2. Maximum sum of all possible subarry of cyclic array
 # 3. Maximum product of all possible subarray 
 # 4. Subarray with the given sum
+# 5. Longest Arithmetic Subarray
 
 # Tags: Array, Sliding Window Technique 
 
@@ -50,8 +51,39 @@ def max_subarray(arr):
 
 # Tags: Array, Sliding Window Technique
 
+# Algorithm:
+# 1. Find out the maximum subarray sum and minimum subarray sum using Kadane
+# 2. Find out the total sum of array
+# 3. If minimum subarray sum is equal to total sum of array, return max subarray sum
+# 4. Return maximum of maximum subarray sum and (total sum - minimum subarray sum)
+
+# Time complexity: O(n)
+# Space complexity: O(1)
 
 
+def maximum_subarray_sum_cyclic(arr:list()) ->int:
+    n=len(arr)
+
+    if n==0:
+        return 0
+
+
+    curr_max,curr_min,max_sum,min_sum=arr[0],arr[0],arr[0],arr[0]
+    total_sum=arr[0]
+
+    for i in range(1,n):
+        total_sum+=arr[i]
+
+        curr_max=max(arr[i],curr_max+arr[i])
+        max_sum=max(max_sum,curr_max)
+
+        curr_min=min(arr[i],curr_min+arr[i])
+        min_sum=min(min_sum,curr_min)
+
+    if min_sum==total_sum:
+        return max_sum
+
+    return max(max_sum,total_sum-min_sum)
 
 # Problem Statement 3: Maximum product of all possible subarray
 
@@ -143,3 +175,36 @@ def subarray_with_given_sum(arr,s):
         end+=1
 
     return []
+
+
+
+# Problem Statement 5: You are given in an array of integers. Find the length of longest arithmetic subarray in the array
+# An arithmetic subarray is a subarray in which the difference between consecutive elements is the same
+
+# Tags: Array, Sliding Window Technique
+
+
+def longest_arithmetic_subarray(arr:list()) ->int:
+    n=len(arr)
+
+    if n<3:
+        return n
+
+    curr_ans=2
+    final_ans=2
+
+    for i in range(2,n):
+
+        d1=arr[i-1]-arr[i-2]
+        d2=arr[i]-arr[i-2]
+
+        if d1==d2:
+            curr_ans+=1
+
+        else:
+            curr_ans=2
+
+        final_ans=max(final_ans,curr_ans)
+
+    
+    return final_ans
