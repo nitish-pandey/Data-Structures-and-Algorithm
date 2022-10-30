@@ -40,9 +40,9 @@ def find_no_of_rot(arr):
     while start<=end:
         mid=start+(end-start)//2
 
-        if arr[mid]>arr[mid+1]:
+        if mid<n-1 and arr[mid]>arr[mid+1]:
             return mid+1
-        elif arr[mid]<arr[mid-1]:
+        elif mid>0 and arr[mid]<arr[mid-1]:
             return mid
 
         if arr[mid]>arr[0]:
