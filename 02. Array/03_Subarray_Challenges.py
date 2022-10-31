@@ -13,6 +13,7 @@
 # 6. Longest Subarray with 0 sum
 # 7. Longest Subarray with sum divisible by k
 # 8. Longest Subarray with equal number of 0s and 1s
+# 9. Maximum of all subarray of size k
 
 # Tags: Array, Sliding Window Technique 
 
@@ -333,5 +334,13 @@ def longest_subarray_with_equal_0_1(arr:list) ->int:
             arr[i]=-1
 
     return longest_subarray_with_sum_0(arr)
+
+
+
+
+# End:
+
+# Problem Statement 9: You are given an array of integers and a number k.
+# Return the array of maximums of all subarrays of size k
 
 
