@@ -13,7 +13,6 @@
 # 6. Longest Subarray with 0 sum
 # 7. Longest Subarray with sum divisible by k
 # 8. Longest Subarray with equal number of 0s and 1s
-# 9. Maximum of all subarray of size k
 
 # Tags: Array, Sliding Window Technique 
 
@@ -288,6 +287,15 @@ def longest_subarray_with_sum_0(arr:list) ->int:
 
 # Problem Statement 7: You are given an array of integers. Find the length of longest subarray in the array such that the sum of elements of subarray is divisible by k
 
+# Approach : Hashing
+# Similar as the previous problem, here we will check if the sum is divisible by k or not
+# If the sum is divisible by k, then we will update the length of longest subarray
+# If not then we will see if the remainder of sum/k is already present in the hash table or not
+# If the remainder is already present in the hash table, then we will update the length of longest subarray
+# If the remainder is not present in the hash table, then we will insert the remainder in the hash table
+
+# Time complexity: O(n)
+# Space complexity: O(n)
 
 def longest_subarray_with_sum_divisible_by_k(arr:list,k:int) ->int:
     n=len(arr)
@@ -319,9 +327,10 @@ def longest_subarray_with_sum_divisible_by_k(arr:list,k:int) ->int:
 # Problem Statement 8: You are given an array of integers. Find the length of longest subarray in the array such that the number of 0's and 1's are equal
 
 
-# Tags: Array, Sliding Window Technique
-
 # Approach: Replace 0 with -1 and then find the longest subarray with sum 0
+
+# Time complexity: O(n)
+# Space complexity: O(n)
 
 def longest_subarray_with_equal_0_1(arr:list) ->int:
     n=len(arr)
@@ -339,8 +348,4 @@ def longest_subarray_with_equal_0_1(arr:list) ->int:
 
 
 # End:
-
-# Problem Statement 9: You are given an array of integers and a number k.
-# Return the array of maximums of all subarrays of size k
-
 
