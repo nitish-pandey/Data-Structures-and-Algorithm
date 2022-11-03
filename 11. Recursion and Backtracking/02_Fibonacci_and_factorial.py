@@ -47,3 +47,6 @@ def fact(n):
     return n*fact(n-1)
 
 
+
+
+# Note : Triboancci number is the sum of the previous three numbers in the series

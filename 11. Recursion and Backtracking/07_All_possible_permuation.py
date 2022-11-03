@@ -58,13 +58,6 @@ def permute_string(s):
 # Approach: We will use backtracking to solve this problem.
 # We will convert the number to string and sort it in order to get in lexographically sorted array
 
-
-
-# Algorithm:
-# We will use backtracking to solve this problem.
-
-
-
 # Time Complexity: O(n*n!)
 # Space Complexity: O(n*n!)
 
