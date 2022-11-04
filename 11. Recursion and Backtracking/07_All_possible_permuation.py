@@ -51,19 +51,6 @@ def permute_string(s):
 
 
 
-# Problem Statement: You are given a number N, you have to return all the possible permutation of a number in lexographically sorted array
-
-# Tags: Recursion, Number, Permutation, Backtracking
-
-# Approach: We will use backtracking to solve this problem.
-# We will convert the number to string and sort it in order to get in lexographically sorted array
-
-# Time Complexity: O(n*n!)
-# Space Complexity: O(n*n!)
+# Problem Statement: You are given a array of size N, return all the possible permuations of array
 
 
-def permute_number(n):
-
-    s=str(n)
-
-    return permute_string(s)
