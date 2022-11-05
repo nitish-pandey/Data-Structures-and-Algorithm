@@ -44,6 +44,9 @@ def find_and_remove_cycle(root):
     if not p1 or not p2:
         return 0
 
+    # Cycle found
+    # Remove the cycle
+
     p1=root
 
     while p1.next!=p2.next:

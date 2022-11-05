@@ -1,17 +1,23 @@
 
 from linked_list import *
 
-# Problem Statement: Reverse a linked list
+# Table of Contents:
+# 1. Reverse a linked list iteratively
+# 2. Reverse a linked list recursively
+# 3. Reverse a linked list in groups of given size
+
+
+
+
+# Problem Statement 1 : Reverse a linked list iteratively
 
 # Algorithm:
-# 1. Take three pointers p1, p2 and p3
-# 2. Move p1 to the first node, p2 to the second node and p3 to the third node
-# 3. Make p1 point to None
-# 4. Make p2 point to p1
-# 5. Move p1 to p2, p2 to p3 and p3 to p3.next
-# 6. Repeat steps 4 and 5 until p2 is None
-
-
+# 1. Initialize three pointers: prev as NULL, curr as head and next as head.next
+# 2. Iterate through the linked list While current is not null. In loop, do following.
+#    a. Change the next of current node to point to prev
+#    b. Move prev and curr one step forward
+#    c. If next is not null, move next one step forward
+# 3. Return prev
 
 # Time Complexity:     O(n)
 # Space Complexity:    O(1)
@@ -21,28 +27,28 @@ def reverse(root):
     if not root or not root.next:
         return
 
-    p1=root
-    p2=root.next
-    p3=root.next.next
+    prev=None
+    curr=root
+    next=root.next
 
-    p1.next=None
+    while curr:
+        curr.next=prev
+        prev=curr
+        curr=next
+        if next:
+            next=next.next
 
-    while p2:
+    return prev
 
-        p2.next=p1
-        p1=p2
-        p2=p3
 
-        if p3:
-            p3=p3.next
 
-    return p1
 
-# Output:
-# 89 78 67 56 45 34 23
-# 23 34 45 56 67 78 89
+# <-- End of Program -->
 
-# Problem Statement: Reverse a linked list using recursion
+
+
+
+# Problem Statement 2: Reverse a linked list using recursion
 
 
 # Algorithm:
@@ -66,6 +72,50 @@ def reverse_recursion(root):
     root.next=None
 
     return temp
+
+
+
+# <-- End of Program -->
+
+
+# Problem Statement 3: Reverse a linked list in groups of given size
+
+# Approach: We will reverse first k nodes using above method and then recursively call the function for further
+# Later combinimg and returning the result
+
+# Algorithm:
+# 1. Initialize three pointers: prev as NULL, curr as head and next as head.next
+# 2. Iterate through the linked list While current is not null k-times only . In loop, do following.
+#    a. Change the next of current node to point to prev
+#    b. Move prev and curr one step forward
+#    c. If next is not null, move next one step forward
+# 3. Recursively call the function for further nodes(curr) and store the result in root.next
+# 4. Return prev
+
+
+def reverse_in_groups(root, k):
+
+    if not root or not root.next:
+        return root
+
+    prev=None
+    curr=root
+    next=root.next
+    count=k
+
+    while curr and count:
+        curr.next=prev
+        prev=curr
+        curr=next
+        if next:
+            next=next.next
+        count-=1
+
+    root.next=reverse_in_groups(curr, k)
+    
+    return prev
+
+
 
 def main():
 

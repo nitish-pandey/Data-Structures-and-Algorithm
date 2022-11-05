@@ -1,6 +1,9 @@
 
 # Problem Statement: Find the nth power of x
 
+
+# Approach 1: Uniform Division
+
 # Algorithm:
 
 # 1. If n is 0, return 1
@@ -32,6 +35,30 @@ def power_of(x,n):
         temp*=x
 
     return temp
+
+
+
+# Approach 2: Uniform Decrease
+
+# Algorithm:
+# 1. If n is 0, return 1
+# 2. If n is less than 0, reciporcal x and make n positive with same value
+# return x * power_of(x,n-1)
+
+
+# Time Complexity: O(n)
+# Space Complexity: O(n)
+
+def power_of_2nd_app(x,n):
+
+    if n ==0:
+        return 1
+
+    if n<0:
+        x=1/x
+        n=abs(n)
+
+    return x * power_of_2nd_app(x,n-1)
 
 
 
