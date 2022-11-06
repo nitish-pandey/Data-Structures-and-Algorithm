@@ -16,6 +16,7 @@ The questions selected here are frequently appeared in the **Interviews** and Ba
 
   - Problem Statement     
   - Tags ( If specific )
+  - Approach
   - Algorithm explained    
   - Time and Space Complexities
   - Code of the solution

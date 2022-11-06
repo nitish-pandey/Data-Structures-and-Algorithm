@@ -35,9 +35,11 @@ def merge_sorted_ll(head1,head2):
         if curr1.data<curr2.data:
             curr.next=curr1
             curr1=curr1.next
+
         else:
             curr.next=curr2
             curr2=curr2.next
+        
         curr=curr.next
 
     if curr1:

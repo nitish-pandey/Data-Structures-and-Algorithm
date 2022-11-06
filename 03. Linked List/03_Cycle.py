@@ -4,18 +4,19 @@ from linked_list import *
 # Problem Statement: Find if a linked list has a cycle ( and remove it if it does )
 
 # Algorithm:
-# 1. Take two pointers p1 and p2
-# 2. Move p1 by one node and p2 by two nodes
-# 3. If p1 and p2 meet, then there is a cycle
-# 4. If p1 or p2 becomes None, then there is no cycle
+# 1. Use two pointers slow and fast
+# 2. Move slow pointer by one and fast pointer by two
+# 3. If they meet, then there is a cycle
+# 4. If they don't meet, then there is no cycle
 
 
-# To remove the cycle ( if it exists ) we can use the continue with algorithm:
+# Continue with below Procedure to remove cycle from linked list
+# 5. set slow to head
+# 6. if slow==fast, move fast to next until fast.next!=slow
+# 6. else move slow and fast by one while next of slow and fast are not equal
+# 7. set next of fast to None
+# 8. return 1
 
-# 5. Move p1 to the head of the linked list
-# 6. Move p1 and p2 by one node
-# 7. When p1 and p2 meet, the node at which they meet is the start of the cycle
-# 8. Move p2 to the last node of the linked list
 
 # Time Complexity:     O(n)
 # Space Complexity:    O(1)
@@ -24,38 +25,39 @@ from linked_list import *
 
 def find_and_remove_cycle(root):
 
-    if not root:
+    if not root or not root.next:
         return 0
 
-    p1=root
-    p2=root
+    slow=root
+    fast=root
 
-    while p1 and p2:
+    while slow and fast and fast.next:
+        slow=slow.next
+        fast=fast.next.next
 
-        p1=p1.next
-        p2=p2.next
-
-        if p2:
-            p2=p2.next
-
-        if p1==p2:
+        if slow==fast:
             break
 
-    if not p1 or not p2:
+    if slow!=fast:
         return 0
 
-    # Cycle found
-    # Remove the cycle
+    slow=root
 
-    p1=root
+    if slow==fast:
+        while fast.next!=slow:
+            fast=fast.next
 
-    while p1.next!=p2.next:
-        p1=p1.next
-        p2=p2.next
+    else:
+        while slow.next!=fast.next:
+            slow=slow.next
+            fast=fast.next
 
-    p2.next=None
+    fast.next=None
 
     return 1
+
+
+# <-- End of Program -->
 
 
 def main():
