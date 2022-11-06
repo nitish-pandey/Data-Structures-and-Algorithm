@@ -1,12 +1,16 @@
 
+
+class node:
+
+    def __init__(self, data=-1):
+
+        self.data=data
+        self.next=None
+
+
 class linked_list:
 
-    class node:
 
-        def __init__(self, data):
-
-            self.data=data
-            self.next=None
 
     def __init__(self):
 
@@ -14,7 +18,7 @@ class linked_list:
 
     def insert(self, data):
 
-        temp=self.node(data)
+        temp=node(data)
 
         temp.next=self.head
         self.head=temp
@@ -23,15 +27,17 @@ class linked_list:
 
         temp=self.head
 
+        print("\nThe Linked list is : ")
+
         while temp:
-            print(temp.data, end=" ")
+            print(temp.data, end=" -> ")
             temp=temp.next
 
-        print()
+        print(" NULL")
 
     def insert_last(self, data):
 
-        temp=self.node(data)
+        temp=node(data)
 
         if self.head==None:
             self.head=temp
