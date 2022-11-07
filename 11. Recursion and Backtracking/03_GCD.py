@@ -23,3 +23,17 @@ def gcd(a, b):
 
 
 
+# <-- End of Code -->
+
+
+def main():
+
+    a=20
+    b=28
+    print(gcd(a,b))
+
+
+main() # Call to main function
+
+# Output: 
+# 4
