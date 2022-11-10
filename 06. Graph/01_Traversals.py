@@ -15,10 +15,10 @@ from graph_implementation import simple_graph
 # 3. While the queue is not empty:
 #     1. Dequeue a node from the queue.
 #     2. Print the node.
-#     3. For each of the children of the dequeued node:
-#         1. If the child is not visited:
-#             1. Mark the child as visited.
-#             2. Enqueue the child.
+#     3. For each of the adjacent of the dequeued node:
+#         1. If the adjacent is not visited:
+#             1. Mark the adjacent as visited.
+#             2. Enqueue the adjacent.
 
 
 
@@ -42,10 +42,10 @@ def BFS(graph,start):
         curr=queue.pop(0)
         print(curr,end=" -> ")
 
-        for child in graph.edges[curr]:
-            if child not in visited:
-                visited.add(child)
-                queue.append(child)
+        for adjacent in graph.edges[curr]:
+            if adjacent not in visited:
+                visited.add(adjacent)
+                queue.append(adjacent)
 
     print()
 
@@ -67,10 +67,10 @@ def BFS(graph,start):
 # 3. While the stack is not empty:
 #     1. Pop a node from the stack.
 #     2. Print the node.
-#     3. For each of the children of the popped node:
-#         1. If the child is not visited:
-#             1. Mark the child as visited.
-#             2. Push the child.
+#     3. For each of the adjacent of the popped node:
+#         1. If the adjacent is not visited:
+#             1. Mark the adjacent as visited.
+#             2. Push the adjacent.
 
 
 
@@ -88,19 +88,19 @@ def DFS_without_recursion(graph,start):
         curr=stack.pop()
         print(curr,end="->  ")
 
-        for child in graph.edges[curr]:
-            if child not in visited:
-                visited.add(child)
-                stack.append(child)
+        for adjacent in graph.edges[curr]:
+            if adjacent not in visited:
+                visited.add(adjacent)
+                stack.append(adjacent)
     
 
 
 # Algorithm: DFS using recursion
 # 1. Mark the current node as visited.
 # 2. Print the current node.
-# 3. For each of the children of the current node:
-#     1. If the child is not visited:
-#         1. Recursively call the DFS function with the child as the current node.
+# 3. For each of the adjacent of the current node:
+#     1. If the adjacent is not visited:
+#         1. Recursively call the DFS function with the adjacent as the current node.
 
 
 
@@ -112,9 +112,9 @@ def DFS_using_recursion(graph,start,visited=set()):
     print(start,end=" -> ")
     visited.add(start)
 
-    for child in graph.edges[start]:
-        if child not in visited:
-            DFS_using_recursion(graph,child,visited)
+    for adjacent in graph.edges[start]:
+        if adjacent not in visited:
+            DFS_using_recursion(graph,adjacent,visited)
 
     
 

@@ -15,3 +15,25 @@ class simple_graph:
         self.vertices.add(u)
         self.vertices.add(v)
 
+
+
+
+class weighted_graph:
+
+    def __init__(self) -> None:
+        self.edges=defaultdict(list)
+        self.vertices=set()
+        pass
+
+
+    def add_edge(self,u,v,w):
+
+        self.edges[u].append((v,w))
+        self.edges[v].append((u,w))
+        self.vertices.add(u)
+        self.vertices.add(v)
+
+
+    
+
+    
