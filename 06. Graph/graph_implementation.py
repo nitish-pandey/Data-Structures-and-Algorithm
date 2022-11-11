@@ -33,6 +33,12 @@ class weighted_graph:
         self.vertices.add(u)
         self.vertices.add(v)
 
+    def get_neighbours(self,u):
+        if u not in self.vertices:
+            return []
+
+        return self.edges[u]
+
 
     
 
