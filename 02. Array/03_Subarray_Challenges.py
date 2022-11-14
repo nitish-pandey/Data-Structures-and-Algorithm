@@ -349,3 +349,51 @@ def longest_subarray_with_equal_0_1(arr:list) ->int:
 
 # End:
 
+
+
+# No of Subarrays divided by k
+
+# Problem Statement 9: You are given an array of integers. Find the number of subarrays in the array such that the sum of elements of subarray is divisible by k
+
+
+# Approach: Hashing
+
+# Algorithm:
+# 1. Initialize current sum=0 and create a hash table
+# 2. Iterate over the array from 0 to n-1
+# 3. If sum is already present in the hash table, then we will update the count of subarrays
+# 4. Else, insert sum in the hash table
+# 5. Return count at the end
+
+# Time complexity: O(n)
+# Space complexity: O(n)
+
+
+def no_of_subarrays_divisible_by_k(arr:list,k:int) ->int:
+
+    n=len(arr)
+    if n==0:
+        return 0
+
+    curr_sum=0
+    count=0
+    h={}
+
+    for i in range(n):
+        curr_sum+=arr[i]
+
+        if curr_sum%k==0:
+            count+=1
+
+        if curr_sum%k in h:
+            count+=h[curr_sum%k]
+
+        if curr_sum%k not in h:
+            h[curr_sum%k]=1
+
+        else:
+            h[curr_sum%k]+=1
+
+    return count
+
+

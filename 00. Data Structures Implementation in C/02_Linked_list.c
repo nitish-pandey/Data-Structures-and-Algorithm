@@ -30,6 +30,83 @@ void insert_begin(node* head,int data){
     return;
 }
 
+// inserting at the end
+
+void insert_end(node* head,int data){
+    node *temp=(node*) malloc(sizeof(node));
+    temp->data=data;
+
+    node *p=head;
+    while(p->next!=NULL){
+        p=p->next;
+    }
+    p->next=temp;
+    temp->next=NULL;
+
+    return;
+
+}
+
+// inserting at a given position
+
+void insert_pos(node* head,int data,int pos){
+    node *temp=(node*) malloc(sizeof(node));
+    temp->data=data;
+
+    node *p=head;
+    int i=1;
+    while(i<pos){
+        p=p->next;
+        i++;
+    }
+    temp->next=p->next;
+    p->next=temp;
+
+    return;
+}
+
+// deleting from the beginning
+
+void delete_begin(node* head){
+    node *temp=head->next;
+    head->next=temp->next;
+    free(temp);
+
+    return;
+}
+
+// deleting from the end
+
+void delete_end(node* head){
+    node *p=head;
+    while(p->next->next!=NULL){
+        p=p->next;
+    }
+    node *temp=p->next;
+    p->next=NULL;
+    free(temp);
+
+    return;
+}
+
+// deleting from a given position
+
+void delete_pos(node* head,int pos){
+    node *p=head;
+    int i=1;
+    while(i<pos){
+        p=p->next;
+        i++;
+    }
+    node *temp=p->next;
+    p->next=temp->next;
+    free(temp);
+
+    return;
+}
+
+
+
 // Printing a Linked list
 
 void print_ll(node* head){
