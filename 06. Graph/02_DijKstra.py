@@ -15,12 +15,14 @@ from graph_implementation import weighted_graph
 
 
 # Algorithm:
-# 1. Create a min heap and initialize all the distances to infinity.
-# 2. Set the distance of the source node to 0.
-# 3. While the heap is not empty, pop the node with the minimum distance.
-# 4. For all the adjacent nodes of the popped node, update the distance if the distance of the popped node + weight of the edge between the popped node and the adjacent node is less than the distance of the adjacent node.
-# 5. Repeat step 3 and 4 until the heap is empty.
-# 6. Return the distance array.
+# 1. Create a dist array/dict and initialize all the distances to infinity except the source node which is 0.
+# 2. Create a min heap and push the source node with distance 0.
+# 3. While the min heap is not empty, do the following:
+#    a. Pop the node from the min heap.
+#    b. For each of the neighbours of the popped node, 
+#       check if the distance of the neighbour is greater than the distance of the popped node + the weight of the edge between the popped node and the neighbour.
+#       If yes, then update the distance of the neighbour and push the neighbour into the min heap.
+# 4. Return the dist array.
 
 
 # Time Complexity: O(ElogV)
@@ -33,28 +35,28 @@ def dijkstra(graph:weighted_graph, source:int) -> list:
 
     dist={}
 
-    min_heap=[]
-
     for vertices in graph.vertices:
         dist[vertices]=sys.maxsize
-        heapq.heappush(min_heap,(dist[vertices],vertices))
 
     dist[source]=0
-    # print(min_heap)
 
+    min_heap=[]
+    heapq.heappush(min_heap,(0,source))
 
     while min_heap:
-
         popped=heapq.heappop(min_heap)
-        popped=popped[1]
+        popped_node=popped[1]
 
-        for adj,cost in graph.get_neighbours(popped):
-            
-            if dist[popped]+cost<dist[adj]:
-                dist[adj]=dist[popped]+cost
-                heapq.heappush(min_heap,(dist[adj],adj))
+        for neighbour in graph.get_neighbours(popped_node):
+
+            curr_dist=dist[popped_node]+graph.get_weight(popped_node,neighbour)
+
+            if curr_dist<dist[neighbour]:
+                dist[neighbour]=curr_dist
+                heapq.heappush(min_heap,(curr_dist,neighbour))
 
     return dist
+
 
 
 
@@ -80,4 +82,7 @@ def main():
     print(dijkstra(g,0))
 
 
-main()
+main() # calling main function
+
+# Output:
+# {0: 0, 1: 4, 2: 12, 3: 19, 4: 21, 5: 11, 6: 9, 7: 8, 8: 14}

@@ -1,4 +1,5 @@
 from collections import defaultdict
+import sys
 
 class simple_graph:
 
@@ -37,7 +38,19 @@ class weighted_graph:
         if u not in self.vertices:
             return []
 
-        return self.edges[u]
+        edges=[x[0] for x in self.edges[u]]
+
+        return edges
+
+    def get_weight(self,u,v):
+        if u not in self.vertices or v not in self.vertices:
+            return sys.maxsize
+
+        for adj,cost in self.edges[u]:
+            if adj==v:
+                return cost
+
+        return sys.maxsize
 
 
     
