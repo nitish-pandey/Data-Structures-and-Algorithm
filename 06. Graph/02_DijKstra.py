@@ -31,29 +31,39 @@ from graph_implementation import weighted_graph
 
 # Implementation:
 
+
+def relaxation(u,v,w,dist,heap):
+
+    if dist[v]>dist[u]+w:
+        dist[v]=dist[u]+w
+        heapq.heappush(heap,(dist[v],v))
+
+
+
 def dijkstra(graph:weighted_graph, source:int) -> list:
 
     dist={}
+    parent={}
 
-    for vertices in graph.vertices:
-        dist[vertices]=sys.maxsize
+    for i in graph.vertices:
+        dist[i]=sys.maxsize
+        parent[i]=None
 
+    solved=set()
+    heap=[]
     dist[source]=0
 
-    min_heap=[]
-    heapq.heappush(min_heap,(0,source))
+    heapq.heappush(heap,(0,source))
 
-    while min_heap:
-        popped=heapq.heappop(min_heap)
-        popped_node=popped[1]
+    while heap:
 
-        for neighbour in graph.get_neighbours(popped_node):
+        u=heapq.heappop(heap)[1]
+        solved.add(u)
 
-            curr_dist=dist[popped_node]+graph.get_weight(popped_node,neighbour)
+        for v,w in graph.adj_list[u]:
 
-            if curr_dist<dist[neighbour]:
-                dist[neighbour]=curr_dist
-                heapq.heappush(min_heap,(curr_dist,neighbour))
+            if v not in solved:
+                relaxation(u,v,w,dist,heap)
 
     return dist
 
