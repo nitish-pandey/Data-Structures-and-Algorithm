@@ -4,126 +4,199 @@ class node:
     def __init__(self, data):
         self.data = data
         self.next = None
+        self.prev=None
+
+
+
+# Class: Stack
+
+# Operations:
+# 1. Push : insert the element at the top
+# 2. Pop: remove the element from the top
+# 3. Peek: See the top element of stack
+# 4. isEmpty: Check if Empty
 
 
 class stack:
 
-    def __init__(self):
-        self.head = None
+    def __init__(self) -> None:
+        self.root==None
+        pass
 
-    def push(self, data):
-        if self.head is None:
-            self.head = node(data)
-        else:
-            new_node = node(data)
-            new_node.next = self.head
-            self.head = new_node
+    def push(self,a):
+        temp=node(a)
 
+        temp.next=self.root
+        self.root=temp
+
+        return
+
+    
     def pop(self):
-        if self.head is None:
-            return None
-        else:
-            temp = self.head
-            self.head = self.head.next
-            return temp.data
+        if self.root==None:
+            return -1
 
+        a=self.root.data
+
+        self.root=self.root.next
+
+        return
+
+    
     def peek(self):
-        if self.head is None:
-            return None
-        else:
-            return self.head.data
 
-    def is_empty(self):
-        return self.head is None
+        if self.root==None:
+            return -1
 
-    def print_stack(self):
-        temp = self.head
-        while temp:
-            print(temp.data, end=" ")
-            temp = temp.next
-        print()
-
-    def reverse_stack(self):
-        if self.head is None:
-            return None
-        else:
-            temp = self.pop()
-            self.reverse_stack()
-            self.insert_at_bottom(temp)
-
-    def insert_at_bottom(self, data):
-        if self.head is None:
-            self.push(data)
-        else:
-            temp = self.pop()
-            self.insert_at_bottom(data)
-            self.push(temp)
+        return self.root.data
 
 
+    def isEmpty(self):
+
+        return self.root==None
+
+    
+
+# Class: Queue
+
+# Operations:
+# 1. Enqueue: Insert at the bottom
+# 2. Dequeue: Remove from the top
+# 3. front: return the Front element
 
 
 class queue:
 
-    def __init__(self):
-        self.head = None
-        self.tail = None
+    def __init__(self) -> None:
+        self.head=None
+        self.tail=None
+        pass
 
-    def enqueue(self, data):
-        if self.head is None:
-            self.head = node(data)
-            self.tail = self.head
-        else:
-            new_node = node(data)
-            self.tail.next = new_node
-            self.tail = new_node
+    def enqueue(self,data):
+        temp=node(data)
 
+        if self.head==None:
+            self.head=self.tail=temp
+            return
+
+        self.tail.next=temp
+        self.tail=temp
+
+        return
+
+    
     def dequeue(self):
-        if self.head is None:
-            return None
-        else:
-            temp = self.head
-            self.head = self.head.next
-            return temp.data
+        if self.head==None:
+            return -1
 
-    def peek(self):
-        if self.head is None:
-            return None
-        else:
+        temp=self.head.data
+
+        self.head=self.head.next
+
+        return temp
+
+    
+    def front(self):
+
+        if self.head:
             return self.head.data
 
-    def is_empty(self):
-        return self.head is None
+        return -1
 
-    def size(self):
-        temp = self.head
-        count = 0
-        while temp:
-            count += 1
-            temp = temp.next
-        return count
+
     
+    def isEmpty(self):
 
-    def print_queue(self):
-        temp = self.head
-        while temp:
-            print(temp.data, end=" ")
-            temp = temp.next
-        print()
+        return self.head==None
 
-    def reverse_queue(self):
-        if self.head is None:
-            return None
-        else:
-            temp = self.dequeue()
-            self.reverse_queue()
-            self.enqueue(temp)
+        
 
-    def reverse_queue_efficient(self):
-        if self.head is None:
-            return None
-        else:
-            stack = []
-            while self.head is not None:
-                stack.append(self.dequeue())
-            while stack:
-                self.enqueue(stack.pop())
+# Class: Dequeue
+
+# Operations:
+# 1. Push front
+# 2. Push Back
+# 3. Pop front
+# 4. Pop back
+# 5. Front
+# 6. Back
+
+
+
+class dequeue:
+
+    def __init__(self) -> None:
+        self.head=None
+        self.tail=None
+        pass
+
+
+    def push_front(self,data):
+        temp=node(data)
+
+        if self.head==None:
+            self.head=self.tail=temp
+            return
+
+        temp.next=self.head
+        self.head=temp
+
+        return        
+
+    def push_back(self,data):
+        temp=node(data)
+
+        if self.head==None:
+            self.head=self.tail=temp
+            return
+
+        self.tail.next=temp
+        temp.prev=self.tail
+        self.tail=temp
+
+        return
+
+    
+    def pop_front(self):
+        if self.head==None:
+            return -1
+
+        temp=self.head.data
+
+        self.head=self.head.next
+        self.head.prev=None
+
+        return temp
+
+    def pop_back(self):
+        if self.head==None:
+            return -1
+
+        temp=self.back.data
+
+        self.back=self.head.prev
+        self.back.next=None
+
+        return temp
+
+    
+    def front(self):
+
+        if self.head:
+            return self.head.data
+
+        return -1
+
+    def back(self):
+
+        if self.tail:
+            return self.tail.data
+
+        return -1
+
+    
+    def isEmpty(self):
+
+        return self.head==None
+
+        
