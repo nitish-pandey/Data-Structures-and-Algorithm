@@ -2,7 +2,7 @@
 
 from bst import BST
 
-# Table of Contents
+# Table of Contents: Part 1
 
 # 1. Check if two trees are identical
 # 2. Check if a tree is a subtree of another tree
@@ -10,18 +10,6 @@ from bst import BST
 # 4. Check if a tree is symmetric
 # 5. Check if the tree is balanced
 # 6. Check if the tree is a binary search tree
-# 7. Check if the tree is a complete binary tree
-# 8. Check if the tree is a perfect binary tree
-# 9. Check if the tree is a degenerate binary tree
-# 10. Check if the tree is a full binary tree
-# 11. Check if the tree is a proper binary tree
-# 12. Check if the tree is a skewed binary tree
-# 13. Check if the tree is a sum tree
-# 14. Check if the tree is a heap
-# 15. Check if the tree is a min heap
-# 16. Check if the tree is a max heap
-# 17. Check if the tree is a min max heap
-
 
 
 # Problem Staement 1: Check if two trees are identical or not using recursion
@@ -30,6 +18,7 @@ from bst import BST
 # Algorithm:
 # if two root are not equal, return false
 # Else, check recursively for the left and right subtrees and return true if both are true
+# Base case: if both the roots are null, return true
 
 # Time Complexity: O(n)
 # Space Complexity: O(n)
@@ -47,6 +36,8 @@ def check_if_identical(root1,root2):
 
     return check_if_identical(root1.left,root2.left) and check_if_identical(root1.right,root2.right)
 
+
+# <End of Problem Statement 1>
 
 
 # Problem statement 2: Check if a binary tree is a subtree of another binary tree
@@ -75,6 +66,9 @@ def check_if_subtree(root1,root2):
     ans=check_if_identical(root1,root2)
 
     return check_if_subtree(root1.left,root2) or check_if_subtree(root1.right,root2) or ans
+
+
+# <End of Problem Statement 2>
 
 
 
@@ -125,90 +119,42 @@ def isSymmetric(root):
 
 
 
-# Problem statement 5: Check if a binary tree is balanced or not
+# Problem statement 5: Check if a binary tree is balanced or not in O(n) time
 
 # Algorithm:
 # 1. If the tree is empty, return true
-# 2. Get the height of the left subtree
-# 3. Get the height of the right subtree
-# 4. If the difference between the height of the left and right subtree is greater than 1, return false
-# 5. Else, return the result of the isBalanced function passing the left subtree and right subtree as the argument
+# 2. Create two variables to store the height of the left and right subtree
+# 3. Call the isBalanced function recursively for the left subtree and store the result in lh
+# 4. Call the isBalanced function recursively for the right subtree and store the result in rh
+# 5. Store the maximum of lh and rh in the height variable + 1
+# 6. Return true if the difference between lh and rh is less than 2, else return false
 
-# Time Complexity: O(n^2)
+
+# Time Complexity: O(n)
 # Space Complexity: O(n)
 
 
-def getHeight(root):
-
-    if root is None:
-        return 0
-
-    return 1+max(getHeight(root.left),getHeight(root.right))
-
-
-
-
-def isBalanced(root):
+def isBalanced(root,height=0):
 
     if root is None:
         return True
 
-    lh=getHeight(root.left)
-    rh=getHeight(root.right)
+    lh=0
+    rh=0
 
-    if abs(lh-rh) > 1:
+    if isBalanced(root.left,lh) is False:
         return False
 
-    return isBalanced(root.left) and isBalanced(root.right)
+    if isBalanced(root.right,rh) is False:
+        return False
 
+    height=max(lh,rh)+1
+
+    return abs(lh-rh)<2
+
+
+
+# <End of Problem Statement 5>
 
 
 # Problem statement 6: Check if a binary tree is a binary search tree or not
-
-# Algorithm:
-# 1. If the tree is empty, return true
-# 2. If the left subtree is not empty, check if the root is greater than the maximum value in the left subtree, if not return false
-# 3. If the right subtree is not empty, check if the root is less than the minimum value in the right subtree, if not return false
-# 4. Else, return the result of the isBST function passing the left subtree and right subtree as the argument
-
-# Time Complexity: O(n^2)
-# Space Complexity: O(n)
-
-def maxValue(root):
-
-    if root is None:
-        return float('-inf')
-
-    return max(root.value,maxValue(root.left),maxValue(root.right))
-
-
-def minValue(root):
-
-    if root is None:
-        return float('inf')
-
-    return min(root.value,minValue(root.left),minValue(root.right))
-
-
-
-def isBST(root):
-
-    if root is None:
-        return True
-
-    if root.left is not None and maxValue(root.left) > root.value:
-        return False
-
-    if root.right is not None and minValue(root.right) < root.value:
-        return False
-
-    return isBST(root.left) and isBST(root.right)
-
-
-
-
-
-#  check for complete, full, perfect, balanced, degenerate, and skewed binary trees
-
-
-
