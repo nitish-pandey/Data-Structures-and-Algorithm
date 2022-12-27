@@ -1,6 +1,6 @@
 
 
-from bst import BST
+from bst import *
 
 # Table of Contents: Part 1
 
@@ -158,3 +158,49 @@ def isBalanced(root,height=0):
 
 
 # Problem statement 6: Check if a binary tree is a binary search tree or not
+
+# Algorithm:
+# 1. Check if root is NULL or leaf node, if yes return True
+# 2. If maximum of the left-subtree is greater than value of root, return false
+# 3. If minimum of right-subtree is greater than value of root, return False
+# 4. Recursively call function for subtrees and return their ans using 'and'
+
+
+def maximum(root:node):
+
+    if not root:
+        return 0
+
+    if not root.right:
+        return root.data
+
+    return maximum(root.right)
+
+
+def minimum(root:node):
+    if not root:
+        return 100000
+
+    if not root.left:
+        return root.data
+
+    return minimum(root.left)
+
+
+
+def isValidBST(root:node):
+
+    if not root or (not root.left and root.right):
+        return True
+
+    if root.left and maximum(root.left)>=root.data:
+        return False
+
+    if root.right and minimum(root.right)<=root.data:
+        return False
+
+    return isValidBST(root.right) and isValidBST(root.left)
+
+
+
+    

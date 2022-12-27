@@ -1,16 +1,19 @@
 
+class node:
+    def __init__(self, value,hd=0):
+        self.value = value
+        self.data=value
+        self.left = None
+        self.right = None
+        self.hd = hd
+
+    def __str__(self):
+        return str(self.value)
+
 
 class BST:
 
-    class node:
-        def __init__(self, value,hd=0):
-            self.value = value
-            self.left = None
-            self.right = None
-            self.hd = hd
 
-        def __str__(self):
-            return str(self.value)
 
     def __init__(self):
         self.root = None
@@ -19,7 +22,7 @@ class BST:
     def __insert(self,root,value,hd):
 
         if not root:
-            return self.node(value,hd)
+            return node(value,hd)
 
         if value < root.value:
             root.left = self.__insert(root.left,value,hd-1)
