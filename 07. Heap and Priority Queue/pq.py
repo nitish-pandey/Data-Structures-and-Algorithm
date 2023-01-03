@@ -98,3 +98,158 @@ class priority_queue:
         return max
 
     
+
+
+class minHeap:
+
+    def __init__(self) -> None:
+        self.heap =[]
+        pass
+
+    def __str__(self) -> str:
+        return str(self.heap)
+
+
+    def push(self,data):
+
+        self.heap.append(data)
+        self.__float_up(len(self.heap)-1)
+
+
+    def __float_up(self,index):
+
+        parent = (index-1)//2
+
+        if index<=0:
+            return
+        elif self.heap[index]<self.heap[parent]:
+            self.__swap(index,parent)
+            self.__float_up(parent)
+
+
+    def __swap(self,i,j):
+
+        self.heap[i],self.heap[j] = self.heap[j],self.heap[i]
+
+
+    def pop(self):
+
+        if len(self.heap)>0:
+            self.__swap(0,len(self.heap)-1)
+            min = self.heap.pop()
+            self.__bubble_down(0)
+        else:
+            min = False
+
+        return min
+
+
+    def __bubble_down(self,index):
+
+        left = 2*index+1
+        right = 2*index+2
+        smallest = index
+
+        if len(self.heap)>left and self.heap[smallest]>self.heap[left]:
+            smallest = left
+
+        if len(self.heap)>right and self.heap[smallest]>self.heap[right]:
+            smallest = right
+
+        if smallest != index:
+            self.__swap(index,smallest)
+            self.__bubble_down(smallest)
+
+
+    def size(self):
+
+        return len(self.heap)
+
+
+    def peek(self):
+
+        if self.heap[0]:
+            return self.heap[0]
+        else:
+            return False
+
+
+
+
+
+
+class maxHeap:
+
+    def __init__(self) -> None:
+        self.heap =[]
+        pass
+
+    def __str__(self) -> str:
+        return str(self.heap)
+
+
+    def push(self,data):
+
+        self.heap.append(data)
+        self.__float_up(len(self.heap)-1)
+
+
+    def __float_up(self,index):
+
+        parent = (index-1)//2
+
+        if index<=0:
+            return
+        elif self.heap[index]>self.heap[parent]:
+            self.__swap(index,parent)
+            self.__float_up(parent)
+
+
+    def __swap(self,i,j):
+
+        self.heap[i],self.heap[j] = self.heap[j],self.heap[i]
+
+
+    def pop(self):
+
+        if len(self.heap)>0:
+            self.__swap(0,len(self.heap)-1)
+            max = self.heap.pop()
+            self.__bubble_down(0)
+        else:
+            max = False
+
+        return max
+
+
+    def __bubble_down(self,index):
+
+        left = 2*index+1
+        right = 2*index+2
+        largest = index
+
+        if len(self.heap)>left and self.heap[largest]<self.heap[left]:
+            largest = left
+
+        if len(self.heap)>right and self.heap[largest]<self.heap[right]:
+            largest = right
+
+        if largest != index:
+            self.__swap(index,largest)
+            self.__bubble_down(largest)
+
+
+    def size(self):
+
+        return len(self.heap)
+
+
+    def peek(self):
+
+        if self.heap[0]:
+            return self.heap[0]
+        else:
+            return False
+
+
+        
