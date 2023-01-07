@@ -21,6 +21,23 @@ from pq import minHeap, maxHeap
 # Time Complexity: O( n log n) 
 # Space Complexity: O(n) for storing the heaps.
 
+def insert(max_heap,min_heap,data):
+
+    min_heap.push(data)
+    max_heap.push(min_heap.pop())
+
+    if min_heap.size()<max_heap.size():
+        min_heap.push(max_heap.pop())
+
+
+def get_median(max_heap,min_heap):
+
+    if min_heap.size() == max_heap.size():
+        return (min_heap.peek()+max_heap.peek())/2
+    else:
+        return min_heap.peek()
+    
+
 
 def stream_median(stream):
 
@@ -31,17 +48,8 @@ def stream_median(stream):
 
     for num in stream:
 
-        min_heap.push(num)
-        max_heap.push(min_heap.pop())
-
-        if min_heap.size() < max_heap.size():
-            min_heap.push(max_heap.pop())
-
-        if min_heap.size() == max_heap.size():
-            ans.append((min_heap.peek()+max_heap.peek())/2)
-        else:
-            ans.append(min_heap.peek())
-
+        insert(max_heap,min_heap,num)
+        ans.append(get_median(max_heap,min_heap))
 
     return ans
 
