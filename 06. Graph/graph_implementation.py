@@ -7,12 +7,12 @@ class simpleGraph:
 
         self.__adjList=defaultdict(list)
         self.__adjMatrix=[[False] *n] *n
-        self.__vertices=set()
+        self.vertices=set()
 
         pass
 
     def __addVertex(self,u:int) ->None:
-        self.__vertices.add(u)
+        self.vertices.add(u)
 
 
     def addEdge(self,u:int,v:int) -> None:
@@ -52,11 +52,11 @@ class weightedGraph:
     def __init__(self,n=20) -> None:
         self.__adjList=defaultdict(list)
         self.__adjMatrix=[[-1]*n]*n
-        self.__vertices=set()
+        self.vertices=set()
         pass
 
     def __addVertex(self,u:int):
-        self.__vertices.add(u)
+        self.vertices.add(u)
 
     
     def addEdge(self,u:int,v:int,w:int) ->None:
@@ -127,21 +127,4 @@ class directedGraph:
 
         return self.__adjList[u]
 
-
-
-
-def main():
-
-    g=weightedGraph()
-
-    g.addEdge(1,2,5)
-    g.addEdge(1,3,4)
-    g.addEdge(2,4,7)
-    g.addEdge(3,4,9)
-
-    print(g.getWeight(2,1))
-            
-
-
-# main()
 
