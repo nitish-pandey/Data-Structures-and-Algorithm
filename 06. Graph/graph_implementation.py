@@ -99,7 +99,16 @@ class weightedGraph:
             if pair[0]==v:
                 return pair[1]
 
-        return -1   
+        return -1  
+
+    def edges(self):
+        ans=[]
+        for u in self.vertices:
+            for v,w in self.__adjList[u]:
+                if u<v:
+                    ans.append([u,v,w]) 
+
+        return ans
 
 
 

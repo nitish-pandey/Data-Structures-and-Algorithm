@@ -1,5 +1,6 @@
 from collections import defaultdict
 from graph_implementation import directedGraph
+import queue
 
 # Topological Sort is the linear ordering of vertices such that for every directed edge uv, vertex u comes before v in the ordering.
 # Topological sort is only possible in a directed acyclic graph (DAG).
@@ -30,16 +31,16 @@ def topologicalSort(dag:directedGraph) -> list:
             in_degree[v]+=1
 
     # Step 2
-    queue=[]
+    q=queue.Queue()
 
     for i in dag.vertices:
         if in_degree[i]==0:
-            queue.append(i)
+            q.put(i)
 
     # Step 3
     ans=[]
-    while queue:
-        u=queue.pop(0)
+    while not q.empty():
+        u=q.get()
         ans.append(u)
 
         # Step 4
@@ -48,7 +49,7 @@ def topologicalSort(dag:directedGraph) -> list:
 
             # Step 5
             if in_degree[v]==0:
-                queue.append(v)
+                q.put(v)
 
     return ans
 

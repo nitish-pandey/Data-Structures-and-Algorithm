@@ -1,23 +1,7 @@
 from graph_implementation import weightedGraph
 from disjoint_set import DisjointSet
-import heapq
 from collections import defaultdict
-
-
-class PriorityQueue:
-    def __init__(self):
-        self._heap = []
-        self._index = 0
-
-    def push(self, item, priority):
-        heapq.heappush(self._heap, (priority, self._index, item))
-        self._index += 1
-
-    def pop(self):
-        return heapq.heappop(self._heap)[-1]
-
-    def isEmpty(self):
-        return len(self._heap) ==0
+import queue
 
 
 # Problem Statement: Find the minimum spanning tree of a graph using Prim's and Kruskal's algorithm
@@ -43,7 +27,7 @@ class PriorityQueue:
 
 
 # Time Complexity: O( E + E log V) 
-# Space Complexity: O(E) 
+# Space Complexity: O(V) 
 
 def primsMST(G:weightedGraph,start) ->None:
 
@@ -61,12 +45,12 @@ def primsMST(G:weightedGraph,start) ->None:
     weight[start]=0
     
     # Initialize Priority Queue
-    pq=PriorityQueue()
+    pq=queue.PriorityQueue()
 
-    pq.push(start,0)
+    pq.put(start,0)
 
-    while not pq.isEmpty():
-        u=pq.pop()
+    while not pq.empty():
+        u=pq.get()
         visited[u]=True
 
         for v in G.getneighbours(u):
@@ -74,7 +58,7 @@ def primsMST(G:weightedGraph,start) ->None:
             if not visited[v] and  weight[v]>x:
                 weight[v]=x
                 parent[v]=u
-                pq.push(v,x)
+                pq.put(v,x)
 
 
     print("\nMST is: ")
@@ -152,13 +136,13 @@ def kruskalsMST(G:weightedGraph)-> None:
 def kruskalUsingPQ(G:weightedGraph)-> None:
 
     # Initializing a PQ
-    pq=PriorityQueue()
+    pq=queue.PriorityQueue()
 
     # Inserting all the edges into PQ
     for u in G.vertices:
         for v in G.getneighbours(u):
             if v>u:
-                pq.push([u,v],G.getWeight(u,v))
+                pq.put([u,v],G.getWeight(u,v))
 
     # creating disjoint Set
     ds=DisjointSet()
@@ -171,7 +155,7 @@ def kruskalUsingPQ(G:weightedGraph)-> None:
     while len(mst)<n-1:
 
         # Extracting the minimum from PQ
-        u,v=pq.pop()
+        u,v=pq.get()
 
         # Selecting only the non-cyclic edges
         if not ds.connected(u,v):
