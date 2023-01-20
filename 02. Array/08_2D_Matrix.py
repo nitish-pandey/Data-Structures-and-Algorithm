@@ -15,7 +15,6 @@
 # 6. Print the elements of the first column from k-1 to i+1 if j!=l.
 # 7. Increment i,j by 1 and decrement k,l by 1.
 
-
 def print_spiral_matrix(matrix: list) -> None:
 
     n=len(matrix)
