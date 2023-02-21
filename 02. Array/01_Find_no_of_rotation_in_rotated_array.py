@@ -1,5 +1,10 @@
 
-# rotating the array  k-times anti-clockwise
+# Problem Statement: Rotate the array k-times anti-clockwise
+
+
+# Time complexity: O(n)
+# Space complexity: O(n)
+
 def rotate_by_k(arr,k):
     n=len(arr)
     if n<=1:
@@ -8,7 +13,9 @@ def rotate_by_k(arr,k):
     arr=arr[n-k:]+arr[:n-k]
     return arr
     
-#  finding the no. of rotation in rotated array anti-clockwise
+
+    
+#  Problem Statement: Finding the no. of rotation in rotated array anti-clockwise
 
 
 # Algorithm

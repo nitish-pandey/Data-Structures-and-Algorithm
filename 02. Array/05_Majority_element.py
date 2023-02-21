@@ -4,34 +4,7 @@
 # Majority element is the element that appears more than n/2 times in an array of size n
 
 
-# Approach 1: Using Hashing
-
-# Time Complexity: O(n)
-# Space Complexity: O(n)
-
-def majority_element_hashing(arr):
-
-    # Creating a dictionary to store the frequency of each element
-    frequency = {}
-
-    # Iterating through the array to store the frequency of each element
-    for element in arr:
-        if element in frequency:
-            frequency[element] += 1
-        else:
-            frequency[element] = 1
-
-    # Iterating through the dictionary to find the element with frequency > n/2
-    for key, value in frequency.items():
-        if value > len(arr) // 2:
-            return key
-
-    # If no element is found, returning -1
-    return -1
-
-
-
-# Approach 2: Using Moore's Voting Algorithm
+# Approach : Using Moore's Voting Algorithm
 
 # Time Complexity: O(n)
 # Space Complexity: O(1)
@@ -88,3 +61,76 @@ def majority_element_moore(arr):
     else:
         return -1
 
+
+
+# Problem statement 2: Finding the majority element in an array and return all the majority elements
+# Majority element is the element that appears more than n/3 times in an array of size n
+
+# Approach: Using Moore's Voting Algorithm
+
+# Algorithm:
+# 1. Initialize two variables 'maj1' and 'maj2' to store the majority elements
+# 2. Initialize two variables 'count1' and 'count2' to store the frequency of the majority elements
+# 3. Iterate through the array
+# 4. If the current element is equal to maj1, increment count1
+# 5. If the current element is equal to maj2, increment count2
+# 6. If count1 is 0, update maj1 to the current element and increment count1
+# 7. If count2 is 0, update maj2 to the current element and increment count2
+# 8. Else, decrement count1 and count2
+# 9. Iterate through the array again to find the frequency of the majority elements
+# 10. If the frequency of maj1 is greater than n/3, append it to the result array
+# 11. If the frequency of maj2 is greater than n/3, append it to the result array
+# 12. Return the result array
+
+
+# Time Complexity: O(n)
+# Space Complexity: O(1)
+
+
+
+def majority_element_moore_2(arr):
+
+    maj1=-1
+    maj2=-1
+    count1=0
+    count2=0
+
+
+    for i in arr:
+
+        if i==maj1:
+            count1+=1
+        
+        elif i==maj2:
+            count2+=1
+
+        elif count1==0:
+            maj1=i
+            count1+=1
+
+        elif count2==0:
+            maj2=i
+            count2+=1
+
+        else:
+            count1-=1
+            count2-=1
+
+    
+    count1=0
+    count2=0
+
+    for i in arr:
+        if i==maj1:
+            count1+=1
+        elif i==maj2:
+            count2+=1
+
+    res=[]
+    if count1>len(arr)//3:
+        res.append(maj1)
+
+    if count2>len(arr)//3:
+        res.append(maj2)
+
+    return res

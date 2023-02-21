@@ -36,3 +36,33 @@ main() # call main function
 
 # output
 # [4, 5, 6, 7, 8, 9]
+
+
+# Problem Statement 2: You are given a sorted array, remove the duplicates in-place
+# 
+# Return the no. of elements in non-duplicate array, the numbers should be placed in first k position of same array
+
+# Approach: 2 Pointers
+
+# Algorithm:
+# 1. Initialize a variable ind=1
+# 2. Iterate from 1 to n:
+# 3. If the ith element is not equal prev element:
+# 4.    assign the current element to ind and increment ind
+
+
+
+# Time Complexity: O(N)
+# Space Complexity: O(1)
+
+
+def remove_dup(arr:list):
+
+    ind=1
+
+    for i in range(1,len(arr)):
+        if arr[i]!=arr[i-1]:
+            arr[ind]=arr[i]
+            ind+=1
+
+    return ind
